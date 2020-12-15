@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import environ
+
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
+SECRET_KEY = env("SECRET_KEY")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-69(nza2*mlbl3y2@!=u*(pavpoltn!mtvr5#sr@jh3k%57yct'
+#SECRET_KEY = '-69(nza2*mlbl3y2@!=u*(pavpoltn!mtvr5#sr@jh3k%57yct'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

@@ -44,10 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("button").forEach(deleteBtnListener);
 });
 
+//Google maps below:
 
 // Create the script tag, set the appropriate attributes
 var script = document.createElement('script');
-script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC6MWycFzNEGjRrtnzeTmOnezWu6KNEs88&callback=initMap';
+script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC1hxuT8dbbI-cfKG--XMKkIqdO3DAoO4w&callback=initMap';
 script.defer = true;
 
 let map;
