@@ -3,6 +3,7 @@
 
 {% block title%}Logbook{% endblock %}
 
+
 {% block body %}
     <div id="map">
     </div>
@@ -25,5 +26,6 @@
 {% endblock%}
 
 {% block script %}
+<script src={{api}} defer></script>
 <script type="text/javascript" src="{% static 'logbook/script.js' %}"></script>
 {% endblock %}

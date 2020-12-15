@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
 //Google maps below:
 
 // Create the script tag, set the appropriate attributes
-var script = document.createElement('script');
-script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC1hxuT8dbbI-cfKG--XMKkIqdO3DAoO4w&callback=initMap';
-script.defer = true;
+// var script = document.createElement('script');
+// script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC1hxuT8dbbI-cfKG--XMKkIqdO3DAoO4w&callback=initMap';
+// script.defer = true;
 
 let map;
 
@@ -75,17 +75,7 @@ window.initMap = function() {
             content: "alo brale"
             });
 
-        // tempMark.addListener("click", () => {
-        //     info.open(map, tempMark)
-        // });
-
-        tempMark.addListener("click", infoing);
-
-        function infoing() {
-            //console.log(event.latLng.toJSON());
-
-            info.open(map, tempMark);
-        }
+        tempMark.addListener("click", () => info.open(map, tempMark));
     
     }
 

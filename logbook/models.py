@@ -13,6 +13,9 @@ class LogEntry(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=False)
     town = models.CharField(max_length=200)
     country = CountryField(countries_flag_url='#')
+    lat = models.DecimalField(max_digits=16, decimal_places=14)
+    lng = models.DecimalField(max_digits=17, decimal_places=14)
+    28.51294614131052, 34.51415840811709
     buddy = models.CharField(max_length=100, blank=True)
 
     class Meta:

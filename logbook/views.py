@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
+from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -7,6 +8,8 @@ from django.http import JsonResponse
 import json
 
 from .models import *
+
+gmpas_api_source = f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=initMap&libraries=&v=weekly"
 
 def index(request):
 
@@ -75,7 +78,7 @@ def log(request):
         logbook = LogEntry.objects.all().filter(diver=request.user)
     except:
         logbook = None
-
+    print(gmpas_api_source)
     if request.method == "POST":
         entryform = LogForm(request.POST)
         if entryform.is_valid():
@@ -86,11 +89,13 @@ def log(request):
             return render(request, "logbook/log.html", {
                 "form": entryform,
                 "logbook": logbook,
+                "api": gmpas_api_source
             })
     
     return render(request, "logbook/log.html", {
         "form": LogForm(),
         "logbook": logbook,
+        "api": gmpas_api_source
     })
 
 @login_required(login_url="login")
