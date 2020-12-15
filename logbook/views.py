@@ -78,7 +78,18 @@ def log(request):
         logbook = LogEntry.objects.all().filter(diver=request.user)
     except:
         logbook = None
-    print(gmpas_api_source)
+
+    lats = LogEntry.objects.order_by().values("lat").distinct()
+    lngs = LogEntry.objects.order_by().values("lng").distinct()
+
+    locations = {}
+
+    for lat_row in lats:
+        for lng_row in lngs:
+            # logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])
+            locations["lat"] = lat_row["lat"]
+            
+
     if request.method == "POST":
         entryform = LogForm(request.POST)
         if entryform.is_valid():
