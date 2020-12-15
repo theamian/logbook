@@ -81,14 +81,33 @@ def log(request):
 
     lats = LogEntry.objects.order_by().values("lat").distinct()
     lngs = LogEntry.objects.order_by().values("lng").distinct()
-
-    locations = {}
+    locations = []
+    i = 0
 
     for lat_row in lats:
         for lng_row in lngs:
+            # print(lat_row["lat"])
+            # print(lng_row["lng"])
+            # try:
+            #     print(logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])[0].town)
+            # except:
+            #     continue
             # logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])
-            locations["lat"] = lat_row["lat"]
-            
+            try:
+                l_temp = logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])
+                if not l_temp:
+                    raise Exception
+                locations.append({})
+                locations[i]["lat"] = lat_row["lat"]
+                locations[i]["lng"] = l_temp[0].lng
+                i = i+1
+            #     locations["town"] = logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])[0]["town"]
+            #     locations["count"] = 
+            except:
+                continue
+        
+
+    print(locations)
 
     if request.method == "POST":
         entryform = LogForm(request.POST)
