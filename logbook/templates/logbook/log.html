@@ -1,0 +1,29 @@
+{% extends "logbook/layout.html" %}
+{% load static %}
+
+{% block title%}Logbook{% endblock %}
+
+{% block body %}
+    <div id="map">
+    </div>
+
+    <form method="POST" action="{% url 'log' %}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Add</button>
+    </form>
+    <div>
+        {% for entry in logbook %}
+        <div id="{{ entry.id }}" class="entryDiv">
+        {{ entry.date }}{{ entry.town }}{{ entry.country.name }}{{ entry.buddy }}
+        <button>delete</button>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock%}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'logbook/script.js' %}"></script>
+{% endblock %}
