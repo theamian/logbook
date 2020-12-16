@@ -43,6 +43,10 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
+    try:
+        del request.session['logbook']
+    except KeyError:
+        pass
     return HttpResponseRedirect(reverse("index"))
 
 
@@ -79,36 +83,6 @@ def log(request):
     except:
         logbook = None
 
-    lats = LogEntry.objects.order_by().values("lat").distinct()
-    lngs = LogEntry.objects.order_by().values("lng").distinct()
-    locations = []
-    i = 0
-
-    for lat_row in lats:
-        for lng_row in lngs:
-            # print(lat_row["lat"])
-            # print(lng_row["lng"])
-            # try:
-            #     print(logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])[0].town)
-            # except:
-            #     continue
-            # logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])
-            try:
-                l_temp = logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])
-                if not l_temp:
-                    raise Exception
-                locations.append({})
-                locations[i]["lat"] = lat_row["lat"]
-                locations[i]["lng"] = l_temp[0].lng
-                i = i+1
-            #     locations["town"] = logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])[0]["town"]
-            #     locations["count"] = 
-            except:
-                continue
-        
-
-    print(locations)
-
     if request.method == "POST":
         entryform = LogForm(request.POST)
         if entryform.is_valid():
@@ -127,6 +101,43 @@ def log(request):
         "logbook": logbook,
         "api": gmpas_api_source
     })
+
+
+@login_required(login_url="login")
+def mapmark(request):
+    if request.method == "POST":
+        try:
+            logbook = LogEntry.objects.all().filter(diver=request.user)
+
+            lats = LogEntry.objects.order_by().values("lat").distinct()
+            lngs = LogEntry.objects.order_by().values("lng").distinct()
+            locations = []
+            i = 0
+
+            for lat_row in lats:
+                for lng_row in lngs:
+                    try:
+                        l_temp = logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])
+                        if not l_temp:
+                            raise Exception
+                        locations.append({})
+                        locations[i]["lat"] = lat_row["lat"]
+                        locations[i]["lng"] = l_temp[0].lng
+                        locations[i]["town"] = l_temp[0].town
+                        locations[i]["count"] = l_temp.count()
+                        i = i+1
+                    except:
+                        continue
+
+            return JsonResponse(locations, safe=False)
+
+        except:
+            return JsonResponse({
+                "ok": False
+            })
+
+
+
 
 @login_required(login_url="login")
 def delete(request):

@@ -33,7 +33,6 @@ function deleting(click) {
     .then(response => response.json())
     .then(data => {
         if(data.ok) {
-            console.log("jee")
             click.target.parentElement.style.display = "none";
         }
     })
@@ -45,11 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Google maps below:
-
-// Create the script tag, set the appropriate attributes
-// var script = document.createElement('script');
-// script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC1hxuT8dbbI-cfKG--XMKkIqdO3DAoO4w&callback=initMap';
-// script.defer = true;
 
 let map;
 
@@ -63,24 +57,28 @@ window.initMap = function() {
         zoom: 2.3,
       });
 
-    for(let i = -5; i > -20; i = i - 5) {
-
-        let tempMark = new google.maps.Marker({
-            position: {lat: split.lat + i, lng: split.lng + i },
-            map: map,
-            title: `Title of i=${i}`,
-        });
-
-        let info = new google.maps.InfoWindow({
-            content: "alo brale"
+    fetch("/mapmark", {
+        method: "POST",
+        headers: { "X-CSRFToken": csrftoken }
+    })
+    .then(response => response.json()) 
+    .then(data => {
+        for(let i=0; i<data.length; i++) {
+            pos = { lat: Number(data[i].lat), lng: Number(data[i].lng) }
+            let tempMark = new google.maps.Marker({
+                position: { lat: pos.lat, lng: pos.lng },
+                map: map,
+                title: `${data[i]["town"]}`,
             });
 
-        tempMark.addListener("click", () => info.open(map, tempMark));
-    
-    }
+            let info = new google.maps.InfoWindow({
+                content: `<b>${data[i]["town"]}</b><br>
+                            Number of dives: ${data[i]["count"]}`
+            });
 
-    //console.log(marker.getPosition().toJSON())
+            tempMark.addListener("click", () => info.open(map, tempMark));
+        }
+    })
+    .catch(error => console.error("Error:", error))
 };
 
-// Append the 'script' element to 'head'
-document.head.appendChild(script);
