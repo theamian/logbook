@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
+import datetime
 
 from .models import *
 
@@ -117,7 +118,7 @@ def mapmark(request):
             for lat_row in lats:
                 for lng_row in lngs:
                     try:
-                        l_temp = logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"])
+                        l_temp = logbook.filter(lat=lat_row["lat"]).filter(lng=lng_row["lng"]).order_by("-date")
                         if not l_temp:
                             raise Exception
                         locations.append({})
@@ -125,6 +126,7 @@ def mapmark(request):
                         locations[i]["lng"] = l_temp[0].lng
                         locations[i]["town"] = l_temp[0].town
                         locations[i]["count"] = l_temp.count()
+                        locations[i]["last_dive"] = l_temp[0].date.strftime("%d/%m/%Y")
                         i = i+1
                     except:
                         continue

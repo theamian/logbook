@@ -73,7 +73,8 @@ window.initMap = function() {
 
             let info = new google.maps.InfoWindow({
                 content: `<b>${data[i]["town"]}</b><br>
-                            Number of dives: ${data[i]["count"]}`
+                            Number of dives: ${data[i]["count"]}<br>
+                            Last dive: ${data[i]["last_dive"]}`
             });
 
             tempMark.addListener("click", () => info.open(map, tempMark));
