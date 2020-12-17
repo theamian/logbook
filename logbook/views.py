@@ -10,7 +10,7 @@ import datetime
 
 from .models import *
 
-gmpas_api_source = f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=initMap&libraries=&v=weekly"
+gmpas_api_source = f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=initMap&libraries=places&v=weekly"
 
 def index(request):
 
@@ -79,6 +79,9 @@ def register(request):
 
 @login_required(login_url="login")
 def log(request):
+
+    gmpas_api_log= f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=initMap&libraries=places&v=weekly"
+
     try:
         logbook = LogEntry.objects.all().filter(diver=request.user)
     except:
@@ -94,15 +97,44 @@ def log(request):
             return render(request, "logbook/log.html", {
                 "form": entryform,
                 "logbook": logbook,
-                "api": gmpas_api_source
+                "api": gmpas_api_log
             })
     
     return render(request, "logbook/log.html", {
         "form": LogForm(),
         "logbook": logbook,
-        "api": gmpas_api_source
+        "api": gmpas_api_log
     })
 
+@login_required(login_url="login")
+def add(request):
+
+    gmpas_api_add= f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=searchMap&libraries=places&v=weekly"
+
+
+    try:
+        logbook = LogEntry.objects.all().filter(diver=request.user)
+    except:
+        logbook = None
+
+    if request.method == "POST":
+        entryform = LogForm(request.POST)
+        if entryform.is_valid():
+            entry = entryform.save(commit=False)
+            entry.diver = request.user
+            entry.save()
+        else:
+            return render(request, "logbook/add.html", {
+                "form": entryform,
+                "logbook": logbook,
+                "api": gmpas_api_add
+            })
+    
+    return render(request, "logbook/add.html", {
+        "form": LogForm(),
+        "logbook": logbook,
+        "api": gmpas_api_add
+    })
 
 @login_required(login_url="login")
 def mapmark(request):
@@ -137,8 +169,6 @@ def mapmark(request):
             return JsonResponse({
                 "ok": False
             })
-
-
 
 
 @login_required(login_url="login")

@@ -5,14 +5,11 @@
 
 
 {% block body %}
-    <div id="map">
+    <div id="logmap">
     </div>
 
     <form method="POST" action="{% url 'log' %}">
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Add</button>
-    </form>
     <div>
         {% for entry in logbook %}
         <div id="{{ entry.id }}" class="entryDiv">
