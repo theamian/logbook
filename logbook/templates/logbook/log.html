@@ -13,7 +13,7 @@
     <div>
         {% for entry in logbook %}
         <div id="{{ entry.id }}" class="entryDiv">
-        {{ entry.date }}{{ entry.town }}{{ entry.country.name }}{{ entry.buddy }}
+        {{ entry.date }}{{ entry.town }}{{ entry.country }}{{ entry.buddy }}
         <button>delete</button>
         </div>
         {% endfor %}
