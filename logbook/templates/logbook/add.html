@@ -1,0 +1,32 @@
+{% extends "logbook/layout.html" %}
+{% load static %}
+
+{% block title%}Add new entries{% endblock %}
+
+{% block body %}
+    <input id="pac-input" class="controls" type="text" placeholder="Search For Your Dive Site"/>̣̣
+
+    <div id="map">
+    </div>
+
+    <form method="POST" action="{% url 'add' %}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Add</button>
+    </form>
+    <div>
+        {% for entry in logbook %}
+        <div id="{{ entry.id }}" class="entryDiv">
+        {{ entry.date }}{{ entry.town }}{{ entry.country }}{{ entry.buddy }}
+        <button>delete</button>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock%}
+
+{% block script %}
+<script src={{api}} defer></script>
+<script type="text/javascript" src="{% static 'logbook/script.js' %}"></script>
+{% endblock %}
