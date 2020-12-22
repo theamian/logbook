@@ -86,19 +86,6 @@ def log(request):
         logbook = LogEntry.objects.all().filter(diver=request.user)
     except:
         logbook = None
-
-    if request.method == "POST":
-        entryform = LogForm(request.POST)
-        if entryform.is_valid():
-            entry = entryform.save(commit=False)
-            entry.diver = request.user
-            entry.save()
-        else:
-            return render(request, "logbook/log.html", {
-                "form": entryform,
-                "logbook": logbook,
-                "api": gmpas_api_log
-            })
     
     return render(request, "logbook/log.html", {
         "form": LogForm(),

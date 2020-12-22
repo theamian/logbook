@@ -134,10 +134,8 @@ let searchMap = function() {
             continue;
           }
         }
-        // document.querySelector("#id_lat").value = place.geometry.location.lat();
-        // document.querySelector("#id_lng").value = place.geometry.location.lng();
-        // document.querySelector("#id_town").value = place.address_components[0].short_name;
-        // document.querySelector("#id_country").value = place.address_components[3].long_name
+        document.querySelector("#id_lat").value = place.geometry.location.lat();
+        document.querySelector("#id_lng").value = place.geometry.location.lng();
       });
       map.fitBounds(bounds);
     });
@@ -165,9 +163,12 @@ let searchMap = function() {
               continue;
             }
           }
+          document.querySelector("#id_lat").value = results[0].geometry.location.lat();
+          document.querySelector("#id_lng").value = results[0].geometry.location.lng();
+  
         } 
         else {
-          windows.alert("No results found");
+          //windows.alert("No results found");
         }
       } 
       else {
@@ -198,54 +199,6 @@ let searchMap = function() {
       })
     );
   });
-
-      // add click listener for input
-      // const geocoder = new google.maps.Geocoder();
-      // map.addListener("click", (mapsMouseEvent) => {
-      //   const latlng = mapsMouseEvent.latLng;
-      //   geocoder.geocode = ({ location: latlng }, (results, status) => {
-      //     console.log("ovo=")
-      //     if(status === "OK") {
-      //       if(results[0]) {
-      //         console.log(results[0])
-      //       }
-      //       else {
-      //         windows.alert("No results found");
-      //         console.log("da nije ovdi?")
-      //       }
-      //     }
-      //     else {
-      //       window.alert("Geocoder failed due to: " + status);
-      //       console.log("ili ovdi?")
-      //     }
-      //   });
-
-      //   // Clear out the old markers.
-      //   markers.forEach((marker) => {
-      //     marker.setMap(null);
-      //   });
-      //   markers = [];
-
-      //   const icon = {
-      //     url: "static/logbook/images/snorkel.svg",
-      //     size: new google.maps.Size(71, 71),
-      //     origin: new google.maps.Point(0, 0),
-      //     anchor: new google.maps.Point(17, 34),
-      //     scaledSize: new google.maps.Size(25, 25),
-      //   };
-  
-      //   // Create a marker for each place.
-      //   markers.push(
-      //     new google.maps.Marker({
-      //       map,
-      //       icon,
-      //       // title: place.name,
-      //       position: latlng,
-      //     })
-      //   );
-      // });
-
-
 }
 
 let initMap = function() {
@@ -274,7 +227,6 @@ let initMap = function() {
                         Number of dives: ${data[i]["count"]}<br>
                         Last dive: ${data[i]["last_dive"]}`
             });
-
             tempMark.addListener("click", () => info.open(logmap, tempMark));
         }
     })

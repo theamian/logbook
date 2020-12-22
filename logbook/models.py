@@ -29,7 +29,7 @@ class LogForm(ModelForm):
         widgets = {
             "lat": forms.HiddenInput(),
             "lng": forms.HiddenInput(),
-            "town": forms.TextInput(attrs={'readonly':'readonly'}),
-            "country": forms.TextInput(attrs={'readonly':'readonly'})
+            # "town": forms.TextInput(attrs={'readonly':'readonly'}),
+            # "country": forms.TextInput(attrs={'readonly':'readonly'})
         }
 
