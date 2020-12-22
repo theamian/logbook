@@ -151,7 +151,6 @@ let searchMap = function() {
         if (results[0]) {
           map.setCenter(latlng);
           if(map.getZoom() < 10) map.setZoom(10);
-          console.log(results[0]);
           let len = results[0].address_components.length;
           for(let i = 0; i < len; i++) {
             if(results[0].address_components[i].types.includes("locality")) {
@@ -194,7 +193,6 @@ let searchMap = function() {
       new google.maps.Marker({
         map,
         icon,
-        // title: place.name,
         position: latlng,
       })
     );
@@ -219,6 +217,13 @@ let initMap = function() {
             let tempMark = new google.maps.Marker({
                 position: { lat: pos.lat, lng: pos.lng },
                 map: logmap,
+                icon: {
+                  url: "static/logbook/images/snorkel.svg",
+                  size: new google.maps.Size(71, 71),
+                  origin: new google.maps.Point(0, 0),
+                  anchor: new google.maps.Point(17, 34),
+                  scaledSize: new google.maps.Size(25, 25),
+                },
                 title: `${data[i]["town"]}`,
             });
 

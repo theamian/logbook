@@ -7,7 +7,7 @@
 }
 
 html,
-body {
+body, #body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -54,4 +54,9 @@ body {
 
 #pac-input:focus {
   border-color: #4d90fe;
+}
+
+#splash {
+  background-color: #0A6EE0;
+  height: 100%;
 }
