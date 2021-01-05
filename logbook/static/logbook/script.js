@@ -54,8 +54,8 @@ let map;
 let searchMap = function() {
 
   clearform();
-    // JS API is loaded and available
 
+    // JS API is loaded and available
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 3, lng: 7 },
         zoom: 2.3,
@@ -63,8 +63,14 @@ let searchMap = function() {
 
     // Create the search box and link it to the UI element.
     const input = document.getElementById("pac-input");
+    input.value = "";
     const searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.BOTTOM].push(input);
+    //map.controls[google.maps.ControlPosition.BOTTOM].push(input);
+    window.addEventListener("load", () => {
+      map.controls[google.maps.ControlPosition.BOTTOM].push(input);
+      input.style.display = "block";
+    });
+
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener("bounds_changed", () => {
@@ -122,7 +128,7 @@ let searchMap = function() {
         } else {
           bounds.extend(place.geometry.location);
         }
-        console.log(place);
+
         let len = place.address_components.length;
         for(let i = 0; i < len; i++) {
           if(place.address_components[i].types.includes("locality")) {
@@ -162,9 +168,8 @@ let searchMap = function() {
               continue;
             }
           }
-          document.querySelector("#id_lat").value = results[0].geometry.location.lat();
-          document.querySelector("#id_lng").value = results[0].geometry.location.lng();
-  
+          document.querySelector("#id_lat").value = latlng.lat();
+          document.querySelector("#id_lng").value = letlng.lng();
         } 
         else {
           //windows.alert("No results found");
