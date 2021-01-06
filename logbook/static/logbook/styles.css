@@ -57,6 +57,31 @@ body, #body {
 }
 
 #splash {
-  background-color: #0A6EE0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/splash.jpeg);
+  background-size: cover;
   height: 100%;
+}
+
+#splash_title_container {
+  color: white;
+  position: relative;
+  top: 40%;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#splash_title {
+  text-align: center;
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#splash_btn {
+  border: 1px solid white;
+  border-radius: 8px;
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: 1.25rem;
+
 }

@@ -168,8 +168,10 @@ let searchMap = function() {
               continue;
             }
           }
+          console.log(latlng.lat());
+          console.log(latlng.lng());
           document.querySelector("#id_lat").value = latlng.lat();
-          document.querySelector("#id_lng").value = letlng.lng();
+          document.querySelector("#id_lng").value = latlng.lng();
         } 
         else {
           //windows.alert("No results found");
