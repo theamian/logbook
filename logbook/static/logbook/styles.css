@@ -65,10 +65,70 @@ body, #body {
 #splash_title_container {
   color: white;
   position: relative;
-  top: 40%;
+  top: 70%;
   width: 60%;
   margin: 0 auto;
   text-align: center;
+}
+
+.fadein {
+  animation-name: fade_in;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    top: 40%;
+    opacity: 1;
+  }
+}
+
+.appear {
+  animation-name: appear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.slideleft {
+  animation-name: slideleft;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.slideright {
+  animation-name: slideright;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideleft {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1
+  }
+}
+
+@keyframes slideright {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    right: 0%;
+    opacity: 1
+  }
 }
 
 #splash_title {
@@ -77,11 +137,32 @@ body, #body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#splash_btn {
+.botuni {
+  opacity: 0;
   border: 1px solid white;
   border-radius: 8px;
   display: inline-block;
   padding: 2px 5px;
   font-size: 1.25rem;
+  margin: 0 4px;
+}
 
+.botuni:hover {
+  background-color: white;
+  color: rgb(33, 40, 56);
+}
+
+#splash_join {
+  left: 10%;
+  position: relative;
+}
+
+#splash_login {
+  right: 10%;
+  position: relative;
+}
+
+#splash_btns_container {
+  display: none;
+  justify-content: center;
 }

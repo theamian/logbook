@@ -168,8 +168,6 @@ let searchMap = function() {
               continue;
             }
           }
-          console.log(latlng.lat());
-          console.log(latlng.lng());
           document.querySelector("#id_lat").value = latlng.lat();
           document.querySelector("#id_lng").value = latlng.lng();
         } 
@@ -245,10 +243,42 @@ let initMap = function() {
     .catch(error => console.error("Error:", error))
 };
 
+let splashing = function() {
+  let splash_btn = document.querySelector("#splash_btn");
+  let join_btn = document.querySelector("#splash_join");
+  let login_btn = document.querySelector("#splash_login");
+  let main = document.querySelector("#splash_title_container");
+
+  main.classList.add("fadein");
+  setTimeout(() => {
+    splash_btn.classList.add("appear");
+  }, 3000);
+
+  splash_btn.addEventListener("click", () => {
+    splash_btn.style.display = "none";
+    document.querySelector("#splash_btns_container").style.display = "flex";
+    join_btn.classList.add("slideleft");
+    login_btn.classList.add("slideright");
+  });
+
+  join_btn.addEventListener("click", () => {
+    location.href = "/register";
+  });
+
+  login_btn.addEventListener("click", () => {
+    location.href = "/login";
+  });
+
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("button").forEach(deleteBtnListener);
   let path = window.location.pathname.replace(/\//,"")
 
   if(path === "log") initMap();
   if(path === "add") searchMap();
+  if(path === "") {
+    splashing();
+  }
 });

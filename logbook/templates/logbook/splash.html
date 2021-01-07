@@ -1,14 +1,23 @@
 {% extends "logbook/layout.html" %}
+{% load static %}
 
 {% block title%}Welcome!{% endblock %}
 
 {% block body %}
     <div id="splash">
-        <div id="splash_title_container">
+        <div id="splash_title_container" class="fadein">
             <div id="splash_title">
                 CoolDiveSite
             </div>
-            <div id="splash_btn">start logging</div>
+            <div id="splash_btn" class="botuni">start logging</div>
+            <div id="splash_btns_container">
+                <div id="splash_join" class="botuni">Join</div>
+                <div id="splash_login" class="botuni">Log in</div>
+            </div>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'logbook/script.js' %}"></script>
 {% endblock %}
