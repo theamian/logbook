@@ -13,7 +13,7 @@
     <body>
       {% if request.path != "/" %}
       <!-- navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent text-white">
           <a class="navbar-brand" href="{% url 'index' %}">CoolDiveSite</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,10 +59,10 @@
           </div>
         </nav>
         {% endif %}
-        <div id="body">
+        <!-- <div id="body"> -->
             {% block body %}
             {% endblock %}
-        </div>
+        <!-- </div> -->
     </body>
     {% block script %}
     {% endblock %}

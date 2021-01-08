@@ -1,16 +1,14 @@
 {% extends "logbook/layout.html" %}
+{% load static %}
 
 {% block title %}Login{% endblock %}
 
 {% block body %}
-
-    <h2>Login</h2>
-
     {% if message %}
         <div>{{ message }}</div>
     {% endif %}
 
-    <form action="{% url 'login' %}" method="post">
+    <form action="{% url 'login' %}" method="post" id="login_form">
         {% csrf_token %}
         <div class="form-group">
             <input autofocus class="form-control" type="text" name="username" placeholder="Username">
@@ -18,9 +16,10 @@
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Login">
+        <input type="submit" value="Log in">
     </form>
+{% endblock %}
 
-    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
-
+{% block script %}
+<script type="text/javascript" src="{% static 'logbook/script.js' %}"></script>
 {% endblock %}

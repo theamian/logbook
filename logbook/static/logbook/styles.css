@@ -2,12 +2,20 @@
     border: 1px solid black;
 }
 
+/* navbar */
+
+/* .navbar {
+  color: white;
+} */
+
+/* map and searchbox stuff */
+
 #map, #logmap {
   height: 400px;
 }
 
 html,
-body, #body {
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -55,6 +63,8 @@ body, #body {
 #pac-input:focus {
   border-color: #4d90fe;
 }
+
+/* splash screen */
 
 #splash {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/splash.jpeg);
@@ -165,4 +175,44 @@ body, #body {
 #splash_btns_container {
   display: none;
   justify-content: center;
+}
+
+/* login screen */
+
+.login_body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/login.jpg);
+  background-size: cover;
+}
+
+#login_form {
+  color: white;
+  position: relative;
+  top: 40%;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#login_form > div > input {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+#login_form > div > input::placeholder{
+  color: white;
+}
+
+#login_form > input {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+#login_form > input:hover {
+  background-color: white;
+  color: rgb(2, 159, 187);
 }

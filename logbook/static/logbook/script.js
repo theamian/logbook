@@ -268,17 +268,19 @@ let splashing = function() {
   login_btn.addEventListener("click", () => {
     location.href = "/login";
   });
+}
 
-
+let loggingin = function() {
+  document.querySelector("body").classList.add("login_body");
+  // document.getElementsByTagName("body")[0].style.background = "red";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("button").forEach(deleteBtnListener);
   let path = window.location.pathname.replace(/\//,"")
-
   if(path === "log") initMap();
   if(path === "add") searchMap();
-  if(path === "") {
-    splashing();
-  }
+  if(path === "") splashing();
+  if(path === "login") loggingin();
+
 });
