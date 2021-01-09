@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
+from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.db import IntegrityError
 import json
 import datetime
 
@@ -59,8 +60,12 @@ def register(request):
         # Ensure password matches confirmation
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
+        if password == "":
+            return render(request, "logbook/register.html", {
+                "message": "You must set a password"
+            })
         if password != confirmation:
-            return render(request, "network/register.html", {
+            return render(request, "logbook/register.html", {
                 "message": "Passwords must match."
             })
 
@@ -69,8 +74,12 @@ def register(request):
             user = User.objects.create_user(username, email, password)
             user.save()
         except IntegrityError:
-            return render(request, "network/register.html", {
+            return render(request, "logbook/register.html", {
                 "message": "Username already taken."
+            })
+        except ValueError as e:
+            return render(request, "logbook/register.html", {
+                "message": e
             })
         login(request, user)
         return HttpResponseRedirect(reverse("log"))

@@ -272,15 +272,26 @@ let splashing = function() {
 
 let loggingin = function() {
   document.querySelector("body").classList.add("login_body");
-  // document.getElementsByTagName("body")[0].style.background = "red";
+}
+
+let registering = function() {
+  document.querySelector("body").classList.add("register_body");
+}
+
+let logpaging = function() {
+  document.querySelector("body").classList.add("log_body");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("button").forEach(deleteBtnListener);
   let path = window.location.pathname.replace(/\//,"")
-  if(path === "log") initMap();
+  if(path === "log") {
+    initMap();
+    logpaging();
+  }
   if(path === "add") searchMap();
   if(path === "") splashing();
   if(path === "login") loggingin();
+  if(path === "register") registering();
 
 });

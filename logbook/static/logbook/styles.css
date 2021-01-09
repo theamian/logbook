@@ -2,12 +2,6 @@
     border: 1px solid black;
 }
 
-/* navbar */
-
-/* .navbar {
-  color: white;
-} */
-
 /* map and searchbox stuff */
 
 #map, #logmap {
@@ -177,34 +171,34 @@ body {
   justify-content: center;
 }
 
-/* login screen */
+/* login and register pages */
 
 .login_body {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/login.jpg);
   background-size: cover;
 }
 
-#login_form {
+.forms {
   color: white;
   position: relative;
-  top: 40%;
+  top: 30%;
   width: 40%;
   margin: 0 auto;
   text-align: center;
 }
 
-#login_form > div > input {
+#login_form > div > input, #register_form > div > input {
   background-color: transparent;
   color: white;
   border: 1px solid white;
   border-radius: 8px;
 }
 
-#login_form > div > input::placeholder{
+#login_form > div > input::placeholder, #register_form > div > input::placeholder {
   color: white;
 }
 
-#login_form > input {
+.forms > input {
   background-color: transparent;
   color: white;
   border: 1px solid white;
@@ -212,7 +206,27 @@ body {
   padding: 6px 12px;
 }
 
-#login_form > input:hover {
+.forms > input:hover {
   background-color: white;
-  color: rgb(2, 159, 187);
+  color: rgb(33, 40, 56);
+}
+
+.register_body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/register.jpeg);
+  background-size: cover; 
+}
+
+.message {
+  color: white;
+  position: relative;
+  top: 20%;
+  font-size: xx-large;
+  text-align: center;
+}
+
+/* log page */
+
+.log_body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/log.jpeg);
+  background-size: cover;
 }

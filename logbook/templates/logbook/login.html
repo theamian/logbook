@@ -5,10 +5,10 @@
 
 {% block body %}
     {% if message %}
-        <div>{{ message }}</div>
+        <div class="message">{{ message }}</div>
     {% endif %}
 
-    <form action="{% url 'login' %}" method="post" id="login_form">
+    <form action="{% url 'login' %}" method="post" id="login_form" class="forms">
         {% csrf_token %}
         <div class="form-group">
             <input autofocus class="form-control" type="text" name="username" placeholder="Username">
