@@ -107,7 +107,6 @@ def add(request):
 
     gmpas_api_add= f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=searchMap&libraries=places&v=weekly"
 
-
     try:
         logbook = LogEntry.objects.all().filter(diver=request.user)
     except:
@@ -118,6 +117,8 @@ def add(request):
         if entryform.is_valid():
             entry = entryform.save(commit=False)
             entry.diver = request.user
+            if entry.buddy == "":
+                entry.buddy = "no buddy"
             entry.save()
         else:
             return render(request, "logbook/add.html", {

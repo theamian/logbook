@@ -4,7 +4,7 @@
 {% block title%}Logbook{% endblock %}
 
 {% block body %}
-    <div id="logmap">
+    <div id="logmap" class="mapa">
     </div>
 
     <form method="POST" action="{% url 'log' %}">
@@ -12,8 +12,9 @@
     <div>
         {% for entry in logbook %}
         <div id="{{ entry.id }}" class="entryDiv">
-        {{ entry.date }}{{ entry.town }}{{ entry.country }}{{ entry.buddy }}
-        <button>delete</button>
+        <div class="entrySection">{{ entry.date }}</div><div class="entrySection">{{ entry.town }}</div><div class="entrySection">{{ entry.country }}</div>
+        <div class="entrySection">{{ entry.buddy }}</div>
+        <button><i></i></button>
         </div>
         {% endfor %}
     </div>
