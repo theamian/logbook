@@ -239,31 +239,60 @@ body {
   box-shadow: 0 0 5px white;
 }
 
-.entryDiv {
-  display: flex;
-  justify-content: space-evenly;
+table {
   width: 45%;
-  border: 1px solid white;
-  border-radius: 8px;
-  box-shadow: 0 0 5px;
-  margin: 5px auto;
+  margin: 0 auto;
   color: white;
-  /* position: relative; */
+  border-collapse: separate;
+  border-spacing: 0 5px;
 }
 
-.entryDiv > button {
+th {
+  text-shadow: 1px 1px black ;
+}
+
+tr:hover > td {
+  background: white;
+  color: rgb(33, 40, 56);
+}
+
+td {
+  border: solid 1px white;
+  border-style: solid none;
+  padding: 0;
+}
+
+td:first-child {
+  border-left-style: solid;
+  border-top-left-radius: 10px; 
+  border-bottom-left-radius: 10px;
+  padding-left: 5px;
+}
+td:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 10px; 
+  border-top-right-radius: 10px;
+}
+
+.delButton {
   background: transparent;
   border: none;
-  /* margin-top: 4px; */
-  /* float: right; */
+  margin-top: 4px;
 }
 
-.entryDiv > button > i{
-  /* float: right; */
+.delButton > i{
   content: url(images/delete-white.svg);
   height: 16px;
 }
 
-.entrySection {
-  /* display: inline-block; */
+.disappear {
+  animation-name: disappear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes disappear {
+  100% {
+    opacity: 0;
+  }
 }

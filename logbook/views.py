@@ -92,7 +92,7 @@ def log(request):
     gmpas_api_log= f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=initMap&libraries=places&v=weekly"
 
     try:
-        logbook = LogEntry.objects.all().filter(diver=request.user)
+        logbook = LogEntry.objects.all().filter(diver=request.user).order_by("date")
     except:
         logbook = None
     
@@ -117,8 +117,6 @@ def add(request):
         if entryform.is_valid():
             entry = entryform.save(commit=False)
             entry.diver = request.user
-            if entry.buddy == "":
-                entry.buddy = "no buddy"
             entry.save()
         else:
             return render(request, "logbook/add.html", {

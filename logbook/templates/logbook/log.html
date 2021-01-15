@@ -7,16 +7,26 @@
     <div id="logmap" class="mapa">
     </div>
 
-    <form method="POST" action="{% url 'log' %}">
-    {% csrf_token %}
     <div>
-        {% for entry in logbook %}
-        <div id="{{ entry.id }}" class="entryDiv">
-        <div class="entrySection">{{ entry.date }}</div><div class="entrySection">{{ entry.town }}</div><div class="entrySection">{{ entry.country }}</div>
-        <div class="entrySection">{{ entry.buddy }}</div>
-        <button><i></i></button>
-        </div>
-        {% endfor %}
+        {% if logbook %}
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Site</th>
+                <th>Country</th>
+                <th>Buddy</th>
+            </tr>
+            {% for entry in logbook %}
+            <tr id="{{ entry.id }}">
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.town }}</td>
+                <td>{{ entry.country }}</td>
+                <td>{{ entry.buddy }}</td>
+                <td><button class="delButton"><i></i></button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
     </div>
 
 

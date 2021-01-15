@@ -21,7 +21,8 @@ function deleteBtnListener(button) {
 }
 
 function deleting(click) {
-    let id = click.target.parentElement.id;
+  console.log(click.target.parentElement.parentElement.parentElement)
+    let id = click.target.parentElement.parentElement.parentElement.id;
 
     fetch("/delete", {
         method: "POST",
@@ -33,7 +34,11 @@ function deleting(click) {
     .then(response => response.json())
     .then(data => {
         if(data.ok) {
-            click.target.parentElement.style.display = "none";
+            // click.target.parentElement.parentElement.style.display = "none";
+            click.target.parentElement.parentElement.parentElement.classList.add("disappear");
+            setTimeout(() => {
+              click.target.parentElement.parentElement.parentElement.style.display = "none";
+            }, 700);
         }
     })
     .catch(error => console.error("Error:", error))
