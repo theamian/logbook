@@ -34,7 +34,6 @@ function deleting(click) {
     .then(response => response.json())
     .then(data => {
         if(data.ok) {
-            // click.target.parentElement.parentElement.style.display = "none";
             click.target.parentElement.parentElement.parentElement.classList.add("disappear");
             setTimeout(() => {
               click.target.parentElement.parentElement.parentElement.style.display = "none";
@@ -214,6 +213,19 @@ let initMap = function() {
   logmap = new google.maps.Map(document.getElementById("logmap"), {
     center: { lat: 3, lng: 7 },
     zoom: 2.3,
+    scaleControl: false,
+    streetViewControl: false,
+    rotateControl: false,
+    fullscreenControl: false,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      position: google.maps.ControlPosition.TOP_CENTER,
+    },
+    zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.TOP_CENTER,
+      },
   });
 
   fetch("/mapmark", {
