@@ -63,6 +63,19 @@ let searchMap = function() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 3, lng: 7 },
         zoom: 2.3,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+          position: google.maps.ControlPosition.TOP_CENTER,
+        },
+        zoomControl: true,
+          zoomControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+          },
       });
 
     // Create the search box and link it to the UI element.
@@ -301,6 +314,12 @@ let logpaging = function() {
 
 let addpaging = function() {
   document.querySelector("body").classList.add("add_body");
+  document.querySelector("form").classList.add("djangoForm");
+
+  document.querySelector("#id_town").placeholder = "dive site";
+  document.querySelector("#id_country").placeholder = "country";
+  document.querySelector("#id_buddy").placeholder = "dive buddy (optional)";
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {

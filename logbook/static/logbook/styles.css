@@ -11,9 +11,11 @@ body {
   padding: 0;
 }
 
-searchboxDiv {
+#searchboxDiv {
+  /* line-height: 2em !important; */
   height: fit-content;
 }
+
 /* .pac-card {
   margin: 10px 10px 0 0;
   border-radius: 2px 0 0 2px;
@@ -23,9 +25,9 @@ searchboxDiv {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   background-color: #fff;
   font-family: Roboto;
-}
+} */
 
-#pac-container {
+/* #pac-container {
   padding-bottom: 12px;
   margin-right: 12px;
 }
@@ -42,8 +44,8 @@ searchboxDiv {
 } */
 
 #pac-input {
-  /* background-color: transparent; */
-  font-family: Roboto;
+  font-family: inherit;
+  font: bold;
   font-size: 15px;
   font-weight: 300;
   display: block;
@@ -51,7 +53,8 @@ searchboxDiv {
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 400px;
-  height: 100%;
+  height: 2.5em;
+  text-align: center;
 }
 
 #pac-input:focus {
@@ -141,6 +144,7 @@ searchboxDiv {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .botuni {
   opacity: 0;
   border: 1px solid white;
@@ -152,7 +156,7 @@ searchboxDiv {
   margin: 0 4px;
 }
 
-.botuni:hover {
+.botuni:hover, .djangoForm > button:hover {
   background-color: white;
   color: rgb(33, 40, 56);
 }
@@ -200,13 +204,15 @@ searchboxDiv {
   color: white;
 }
 
-.forms > input {
+.forms > input, input[id^="id_"] {
   background-color: transparent;
   color: white;
   border: 1px solid white;
   border-radius: 8px;
   box-shadow: 0 0 5px white;
   padding: 6px 12px;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
 }
 
 .forms > input:hover {
@@ -254,6 +260,10 @@ table {
   color: white;
   border-collapse: separate;
   border-spacing: 0 5px;
+}
+
+tr {
+  line-height: 2em;
 }
 
 th {
@@ -305,4 +315,31 @@ td:last-child {
   100% {
     opacity: 0;
   }
+}
+
+/* django form fields */
+
+input[id^="id_"] {
+  /* background-color: red; */
+}
+
+label {
+  display: none;
+}
+
+.djangoForm {
+  text-align: center;
+  position: relative;
+}
+
+.djangoForm > button {
+  background-color: transparent;
+  color: white; 
+  border: 1px solid white;
+  border-radius: 8px;
+  box-shadow: 0 0 5px white;
+  font-size: 1.25rem;
+    position: absolute;
+  height: 100%;
+  margin-left: 2.5px;
 }
