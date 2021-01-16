@@ -55,6 +55,7 @@ function clearform() {
 let logmap;
 let map;
 
+//map used on add.html
 let searchMap = function() {
 
   clearform();
@@ -82,12 +83,6 @@ let searchMap = function() {
     const input = document.getElementById("pac-input");
     input.value = "";
     const searchBox = new google.maps.places.SearchBox(input);
-    // map.controls[google.maps.ControlPosition.BOTTOM].push(input);
-    // window.addEventListener("load", () => {
-    //   // map.controls[google.maps.ControlPosition.BOTTOM].push(input);
-    //   // input.style.display = "block";
-    // });
-
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener("bounds_changed", () => {
@@ -221,6 +216,7 @@ let searchMap = function() {
   });
 }
 
+// map used on log.html
 let initMap = function() {
 
   logmap = new google.maps.Map(document.getElementById("logmap"), {
@@ -241,6 +237,7 @@ let initMap = function() {
       },
   });
 
+  // markers and info windows for logged dives
   fetch("/mapmark", {
         method: "POST",
         headers: { "X-CSRFToken": csrftoken }
@@ -319,7 +316,6 @@ let addpaging = function() {
   document.querySelector("#id_town").placeholder = "dive site";
   document.querySelector("#id_country").placeholder = "country";
   document.querySelector("#id_buddy").placeholder = "dive buddy (optional)";
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -336,5 +332,4 @@ document.addEventListener("DOMContentLoaded", () => {
   if(path === "") splashing();
   if(path === "login") loggingin();
   if(path === "register") registering();
-
 });

@@ -9,7 +9,7 @@
     </div>
     <div id="searchboxDiv">
     <input id="pac-input" type="text" placeholder="Search For Your Dive Site"/>
-    </div>̣̣
+    </div>
 
     <form method="POST" action="{% url 'add' %}">
     {% csrf_token %}
@@ -17,14 +17,26 @@
     <button type="submit">Add</button>
     </form>
     <div>
-        {% for entry in logbook %}
-        <div id="{{ entry.id }}" class="entryDiv">
-        {{ entry.date }}{{ entry.town }}{{ entry.country }}{{ entry.buddy }}
-        <button>delete</button>
-        </div>
-        {% endfor %}
+        {% if logbook %}
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Site</th>
+                <th>Country</th>
+                <th>Buddy</th>
+            </tr>
+            {% for entry in logbook %}
+            <tr id="{{ entry.id }}">
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.town }}</td>
+                <td>{{ entry.country }}</td>
+                <td>{{ entry.buddy }}</td>
+                <td><button class="delButton"><i></i></button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
     </div>
-
 
 {% endblock%}
 

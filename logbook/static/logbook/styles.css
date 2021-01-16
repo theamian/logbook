@@ -12,36 +12,8 @@ body {
 }
 
 #searchboxDiv {
-  /* line-height: 2em !important; */
   height: fit-content;
 }
-
-/* .pac-card {
-  margin: 10px 10px 0 0;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
-  font-family: Roboto;
-} */
-
-/* #pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
-}
-
-.pac-controls {
-  display: inline-block;
-  padding: 5px 11px;
-}
-
-.pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-} */
 
 #pac-input {
   font-family: inherit;
@@ -49,7 +21,7 @@ body {
   font-size: 15px;
   font-weight: 300;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 400px;
@@ -143,7 +115,6 @@ body {
   font-size: 3rem;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .botuni {
   opacity: 0;
@@ -248,7 +219,6 @@ body {
 .mapa {
   width: 50%;
   margin: 0 auto;
-  margin-bottom: 10px;
   border-radius: 250px;
   border: 1px solid white;
   box-shadow: 0 0 5px white;
@@ -319,17 +289,13 @@ td:last-child {
 
 /* django form fields */
 
-input[id^="id_"] {
-  /* background-color: red; */
-}
-
 label {
   display: none;
 }
 
 .djangoForm {
-  text-align: center;
-  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .djangoForm > button {
@@ -339,7 +305,5 @@ label {
   border-radius: 8px;
   box-shadow: 0 0 5px white;
   font-size: 1.25rem;
-    position: absolute;
-  height: 100%;
   margin-left: 2.5px;
 }

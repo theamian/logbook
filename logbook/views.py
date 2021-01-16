@@ -108,7 +108,7 @@ def add(request):
     gmpas_api_add= f"https://maps.googleapis.com/maps/api/js?key={settings.GMAPS_API}&callback=searchMap&libraries=places&v=weekly"
 
     try:
-        logbook = LogEntry.objects.all().filter(diver=request.user)
+        logbook = LogEntry.objects.all().filter(diver=request.user).order_by("date")
     except:
         logbook = None
 
