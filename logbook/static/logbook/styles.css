@@ -11,7 +11,10 @@ body {
   padding: 0;
 }
 
-.pac-card {
+searchboxDiv {
+  height: fit-content;
+}
+/* .pac-card {
   margin: 10px 10px 0 0;
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
@@ -36,18 +39,19 @@ body {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
-}
+} */
 
 #pac-input {
-  background-color: #fff;
+  /* background-color: transparent; */
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 12px;
+  display: block;
+  margin: 0 auto;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 400px;
-  height: 10%;
+  height: 100%;
 }
 
 #pac-input:focus {
@@ -184,7 +188,7 @@ body {
   text-align: center;
 }
 
-#login_form > div > input, #register_form > div > input {
+#login_form > div > input, #register_form > div > input, #pac-input {
   background-color: transparent;
   color: white;
   border: 1px solid white;
@@ -223,17 +227,22 @@ body {
   text-align: center;
 }
 
-/* log page */
+/* log and add page */
 
 .log_body {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/log.jpeg);
   background-size: cover;
 }
 
+.add_body {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(images/add.jpeg);
+  background-size: cover;
+}
+
 .mapa {
   width: 50%;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-radius: 250px;
   border: 1px solid white;
   box-shadow: 0 0 5px white;

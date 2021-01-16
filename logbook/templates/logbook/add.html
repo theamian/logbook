@@ -4,10 +4,12 @@
 {% block title%}Add new entries{% endblock %}
 
 {% block body %}
-    <input id="pac-input" class="controls" type="text" placeholder="Search For Your Dive Site" style="display:none"/>̣̣
 
-    <div id="map">
+    <div id="map" class="mapa">
     </div>
+    <div id="searchboxDiv">
+    <input id="pac-input" type="text" placeholder="Search For Your Dive Site"/>
+    </div>̣̣
 
     <form method="POST" action="{% url 'add' %}">
     {% csrf_token %}

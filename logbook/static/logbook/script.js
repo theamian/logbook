@@ -69,11 +69,11 @@ let searchMap = function() {
     const input = document.getElementById("pac-input");
     input.value = "";
     const searchBox = new google.maps.places.SearchBox(input);
-    //map.controls[google.maps.ControlPosition.BOTTOM].push(input);
-    window.addEventListener("load", () => {
-      map.controls[google.maps.ControlPosition.BOTTOM].push(input);
-      input.style.display = "block";
-    });
+    // map.controls[google.maps.ControlPosition.BOTTOM].push(input);
+    // window.addEventListener("load", () => {
+    //   // map.controls[google.maps.ControlPosition.BOTTOM].push(input);
+    //   // input.style.display = "block";
+    // });
 
 
     // Bias the SearchBox results towards current map's viewport.
@@ -299,6 +299,10 @@ let logpaging = function() {
   document.querySelector("body").classList.add("log_body");
 }
 
+let addpaging = function() {
+  document.querySelector("body").classList.add("add_body");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("button").forEach(deleteBtnListener);
   let path = window.location.pathname.replace(/\//,"")
@@ -306,7 +310,10 @@ document.addEventListener("DOMContentLoaded", () => {
     initMap();
     logpaging();
   }
-  if(path === "add") searchMap();
+  if(path === "add") {
+    searchMap();
+    addpaging();
+  }
   if(path === "") splashing();
   if(path === "login") loggingin();
   if(path === "register") registering();
