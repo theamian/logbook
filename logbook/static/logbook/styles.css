@@ -112,7 +112,7 @@ body {
 
 #splash_title {
   text-align: center;
-  font-size: 3rem;
+  font-size: 4vw;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -123,7 +123,7 @@ body {
   box-shadow: 0 0 5px white;
   display: inline-block;
   padding: 2px 5px;
-  font-size: 1.25rem;
+  font-size: 2vw;
   margin: 0 4px;
 }
 
@@ -159,6 +159,7 @@ body {
   position: relative;
   top: 30%;
   width: 40%;
+  height: 30%;
   margin: 0 auto;
   text-align: center;
 }
@@ -306,4 +307,71 @@ label {
   box-shadow: 0 0 5px white;
   font-size: 1.25rem;
   margin-left: 2.5px;
+}
+
+@media only screen and (orientation: portrait) {
+  #splash, .register_body, .login_body, .log_body, .add_body {
+    background:rgb(33, 40, 56);
+  }
+  #splash_title {
+    font-size: 10vw;
+  }
+  .botuni {
+    font-size: 5vw;
+  }
+  #login_form > div > input::placeholder, #register_form > div > input::placeholder, .forms > input  {
+    font-size: 3vw;
+  }
+  .forms {
+    width: 60%;
+  }
+  .mapa {
+    width: 99%;
+  }
+  table, #pac-input, input[id^="id_"] {
+    width: 95%;
+  }
+  input[id^="id_"]{
+    margin-bottom: 5px;
+  }
+  th, td {
+    font-size: 3vw;
+  }
+  .djangoForm {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-height: 600px) {
+  .forms {
+    top: 10%;
+    height: 80%
+  }
+  .message {
+    top: 0%;
+  }
+  .log_body {
+    background-size: auto;
+  }
+
+}
+
+@media only screen and (orientation: landscape) and (max-height: 800px) {
+  .mapa {
+    width: 85%;
+  }
+  table {
+    width: 80%;
+  }
+  input[id^="id_"]{
+    flex-shrink: 1;
+    overflow: hidden;
+    font-size: 2vw;
+    margin: 0 5px;
+  }
+  .djangoForm > button {
+    margin-right: 5px;
+  }
+  }
 }
