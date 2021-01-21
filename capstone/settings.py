@@ -11,13 +11,14 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import environ
+# import environ
 
-env = environ.Env()
+# env = environ.Env()
+
 # reading .env file
-environ.Env.read_env()
+# environ.Env.read_env()
 
-GMAPS_API = env("GMAPS_API")
+GMAPS_API = os.environ.get("GMAPS_API", 'AIzaSyC1hxuT8dbbI-cfKG--XMKkIqdO3DAoO4w')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY", '-69(nza2*mlbl3y2@!=u*(pavpoltn!mtvr5#sr@jh3k%57yctX')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
