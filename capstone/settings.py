@@ -18,7 +18,7 @@ import os
 # reading .env file
 # environ.Env.read_env()
 
-GMAPS_API = os.environ.get("GMAPS_API", 'AIzaSyC1hxuT8dbbI-cfKG--XMKkIqdO3DAoO4w')
+GMAPS_API = os.environ.get("GMAPS_API")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,10 +31,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY", '-69(nza2*mlbl3y2@!=u*(pavpoltn!mtvr5#sr@jh3k%57yctX')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True')
 
-ALLOWED_HOSTS = ['gentle-bastion-15993.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['gentle-bastion-15993.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
