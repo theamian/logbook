@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", '-69(nza2*mlbl3y2@!=u*(pavpoltn!mtvr5#
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True')
 
-ALLOWED_HOSTS = ['gentle-bastion-15993.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['cooldivesite.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
