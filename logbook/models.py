@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.contrib.admin.widgets import AdminDateWidget
 from django.db import models
 from django.forms import ModelForm
 from django import forms
@@ -20,9 +21,13 @@ class LogEntry(models.Model):
 
 class LogForm(ModelForm):
 
-    date = forms.DateField(input_formats=["%d/%m/%Y"],
-                            widget=forms.DateInput(attrs={"placeholder" : "dd/mm/yyyy"}
-                            ))
+    # date = forms.DateField(input_formats=["%d/%m/%Y"],
+    #                         widget=forms.DateInput(attrs={"placeholder" : "dd/mm/yyyy"}
+    #                         ))
+    
+    date = forms.DateField(widget=forms.DateInput(attrs={"type":"text", "placeholder":"select a date", "onfocus":"(this.type = 'date')"}
+                        ))
+
     class Meta:
         model = LogEntry
         fields = ("date", "town", "country", "buddy", "lat", "lng")

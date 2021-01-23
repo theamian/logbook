@@ -21,7 +21,6 @@ function deleteBtnListener(button) {
 }
 
 function deleting(click) {
-  console.log(click.target.parentElement.parentElement.parentElement)
     let id = click.target.parentElement.parentElement.parentElement.id;
 
     fetch("/delete", {
@@ -36,7 +35,8 @@ function deleting(click) {
         if(data.ok) {
             click.target.parentElement.parentElement.parentElement.classList.add("disappear");
             setTimeout(() => {
-              click.target.parentElement.parentElement.parentElement.style.display = "none";
+              click.target.parentElement.parentElement.parentElement.remove();
+              if(document.querySelector("tbody").childElementCount == 1) document.querySelector("tbody").style.display = "none";
             }, 700);
         }
     })
@@ -44,10 +44,12 @@ function deleting(click) {
 }
 
 function clearform() {
+  document.querySelector("#id_date").value = "";
   document.querySelector("#id_lat").value = "";
   document.querySelector("#id_lng").value = "";
   document.querySelector("#id_town").value = "";
   document.querySelector("#id_country").value = "";
+  document.querySelector("#id_buddy").value = "";
 }
 
 //Google maps below:
@@ -149,6 +151,7 @@ let searchMap = function() {
           }
           if(place.address_components[i].types.includes("country")) {
             document.querySelector("#id_country").value = place.address_components[i].long_name;
+            if(document.querySelector("#addBtn").hidden = true) document.querySelector("#addBtn").hidden = false;
             continue;
           }
         }
@@ -177,6 +180,7 @@ let searchMap = function() {
             }
             if(results[0].address_components[i].types.includes("country")) {
               document.querySelector("#id_country").value = results[0].address_components[i].long_name;
+              if(document.querySelector("#addBtn").hidden = true) document.querySelector("#addBtn").hidden = false;
               continue;
             }
           }
@@ -315,6 +319,7 @@ let addpaging = function() {
 
   document.querySelector("#id_town").placeholder = "dive site";
   document.querySelector("#id_country").placeholder = "country";
+  document.querySelector("#id_country").disabled = true;
   document.querySelector("#id_buddy").placeholder = "dive buddy (optional)";
 }
 

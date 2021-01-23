@@ -14,7 +14,7 @@
     <form method="POST" action="{% url 'add' %}">
     {% csrf_token %}
     {{ form }}
-    <button type="submit">Add</button>
+    <button type="submit" id="addBtn" hidden>Add</button>
     </form>
     <div>
         {% if logbook %}
