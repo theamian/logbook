@@ -36,7 +36,7 @@ body {
 /* splash screen */
 
 #splash {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/splash.jpeg);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/splash.jpeg) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
 }
@@ -150,7 +150,7 @@ body {
 /* login and register pages */
 
 .login_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/login.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/login.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -197,7 +197,7 @@ body {
 }
 
 .register_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/register.jpeg);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/register.jpeg) no-repeat center center fixed;
   background-size: cover; 
 }
 
@@ -215,12 +215,12 @@ body {
 /* log and add page */
 
 .log_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/log.jpeg);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/log.jpeg) no-repeat center center fixed;
   background-size: cover;
 }
 
 .add_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(images/add.jpeg);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(images/add.jpeg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -316,18 +316,13 @@ label {
   margin-left: 2.5px;
 }
 
-@media only screen and (orientation: portrait) {
-  #splash, .register_body, .login_body, .log_body, .add_body {
-    background:rgb(33, 40, 56);
-  }
+@media only screen and (max-width: 600px) {
+
   #splash_title {
     font-size: 10vw;
   }
   .botuni {
     font-size: 3.5vw;
-  }
-  #login_form > div > input::placeholder, #register_form > div > input::placeholder, .forms > input  {
-    font-size: 3vw;
   }
   .forms {
     width: 60%;
@@ -350,7 +345,7 @@ label {
   }
 }
 
-@media only screen and (orientation: landscape) and (max-height: 600px) {
+@media only screen and (min-width: 601px) and (max-height: 600px) {
   .forms {
     top: 10%;
     height: 80%
@@ -361,10 +356,9 @@ label {
   .log_body {
     background-size: auto;
   }
-
 }
 
-@media only screen and (orientation: landscape) and (max-height: 800px) {
+@media only screen and (min-width: 601px) and (max-height: 800px) {
   .mapa {
     width: 85%;
   }
