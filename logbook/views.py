@@ -27,7 +27,7 @@ def login_view(request):
     if request.method == "POST":
 
         # Attempt to sign user in
-        username = request.POST["username"]
+        username = request.POST["username"].lower()
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
 
@@ -54,7 +54,7 @@ def logout_view(request):
 
 def register(request):
     if request.method == "POST":
-        username = request.POST["username"]
+        username = request.POST["username"].lower()
         email = request.POST["email"]
 
         # Ensure password matches confirmation

@@ -16,11 +16,12 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
-function deleteBtnListener(button) {
-    button.addEventListener("click", deleting);
+function deleteBtnListener(i) {
+    i.addEventListener("click", deleting);
 }
 
 function deleting(click) {
+  console.log(click.target.parentElement.parentElement.parentElement)
     let id = click.target.parentElement.parentElement.parentElement.id;
 
     fetch("/delete", {
@@ -321,10 +322,19 @@ let addpaging = function() {
   document.querySelector("#id_country").placeholder = "country";
   document.querySelector("#id_country").disabled = true;
   document.querySelector("#id_buddy").placeholder = "dive buddy (optional)";
+
+  document.querySelector("#addBtn").addEventListener("click", () => {
+    document.querySelector("#id_country").disabled = false;
+    setTimeout(() => {
+      if(document.querySelector("#id_lat") !== "") {
+        document.querySelector("#id_country").disabled = true;
+      }
+    }, 100);
+  })
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("button").forEach(deleteBtnListener);
+  document.querySelectorAll("i").forEach(deleteBtnListener);
   let path = window.location.pathname.replace(/\//,"")
   if(path === "log") {
     initMap();

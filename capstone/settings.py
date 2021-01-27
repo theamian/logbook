@@ -18,7 +18,7 @@ import os
 # reading .env file
 # environ.Env.read_env()
 
-GMAPS_API = os.environ.get("GMAPS_API")
+GMAPS_API = os.environ.get("GMAPS_API", "AIzaSyC1hxuT8dbbI-cfKG--XMKkIqdO3DAoO4w")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
