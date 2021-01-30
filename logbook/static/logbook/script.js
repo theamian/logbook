@@ -320,17 +320,8 @@ let addpaging = function() {
 
   document.querySelector("#id_town").placeholder = "dive site";
   document.querySelector("#id_country").placeholder = "country";
-  document.querySelector("#id_country").disabled = true;
+  document.querySelector("#id_country").readOnly = true;
   document.querySelector("#id_buddy").placeholder = "dive buddy (optional)";
-
-  document.querySelector("#addBtn").addEventListener("click", () => {
-    document.querySelector("#id_country").disabled = false;
-    setTimeout(() => {
-      if(document.querySelector("#id_lat") !== "") {
-        document.querySelector("#id_country").disabled = true;
-      }
-    }, 100);
-  })
 }
 
 document.addEventListener("DOMContentLoaded", () => {
