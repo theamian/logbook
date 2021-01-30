@@ -99,6 +99,7 @@ let searchMap = function() {
     searchBox.addListener("places_changed", () => {
 
       clearform();
+      document.querySelector("form").hidden = false;
 
       const places = searchBox.getPlaces();
 
@@ -166,6 +167,7 @@ let searchMap = function() {
   map.addListener("click", (mapsMouseEvent) => {
 
     clearform();
+    document.querySelector("form").hidden = false;
 
     const latlng = mapsMouseEvent.latLng;
     geocoder.geocode({ location: latlng }, (results, status) => {
@@ -317,6 +319,7 @@ let logpaging = function() {
 let addpaging = function() {
   document.querySelector("body").classList.add("add_body");
   document.querySelector("form").classList.add("djangoForm");
+  document.querySelector("form").hidden = true;
 
   document.querySelector("#id_town").placeholder = "dive site";
   document.querySelector("#id_country").placeholder = "country";
