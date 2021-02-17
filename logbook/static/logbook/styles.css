@@ -1,5 +1,4 @@
 /* map and searchbox stuff */
-
 #map, #logmap {
   height: 400px;
 }
@@ -34,7 +33,6 @@ body {
 }
 
 /* splash screen */
-
 #splash {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(images/splash.jpeg) no-repeat center center fixed;
   background-size: cover;
@@ -149,7 +147,6 @@ body {
 }
 
 /* login and register pages */
-
 .login_body {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/login.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -214,7 +211,6 @@ body {
 }
 
 /* log and add page */
-
 .log_body {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/log.jpeg) no-repeat center center fixed;
   background-size: cover;
@@ -297,7 +293,6 @@ td:last-child {
 }
 
 /* django form fields */
-
 label {
   display: none;
 }

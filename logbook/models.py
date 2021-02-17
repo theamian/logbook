@@ -20,10 +20,6 @@ class LogEntry(models.Model):
         verbose_name_plural = "LogEntries"
 
 class LogForm(ModelForm):
-
-    # date = forms.DateField(input_formats=["%d/%m/%Y"],
-    #                         widget=forms.DateInput(attrs={"placeholder" : "dd/mm/yyyy"}
-    #                         ))
     
     date = forms.DateField(widget=forms.DateInput(attrs={"type":"text", "placeholder":"select a date", "onfocus":"(this.type = 'date')"}
                         ))

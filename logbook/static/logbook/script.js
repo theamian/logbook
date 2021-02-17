@@ -1,4 +1,4 @@
-//c/p from django docs
+//from django docs - csrf token setup
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -16,10 +16,12 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
+//add event listener to <i>s (trashbin icons)
 function deleteBtnListener(i) {
     i.addEventListener("click", deleting);
 }
 
+//function to delete log entries
 function deleting(click) {
   console.log(click.target.parentElement.parentElement.parentElement)
     let id = click.target.parentElement.parentElement.parentElement.id;
@@ -44,6 +46,7 @@ function deleting(click) {
     .catch(error => console.error("Error:", error))
 }
 
+//clear forms on refresh
 function clearform() {
   document.querySelector("#id_date").value = "";
   document.querySelector("#id_lat").value = "";
@@ -277,6 +280,7 @@ let initMap = function() {
     .catch(error => console.error("Error:", error))
 };
 
+//splash screen function
 let splashing = function() {
   let splash_btn = document.querySelector("#splash_btn");
   let join_btn = document.querySelector("#splash_join");
@@ -304,18 +308,22 @@ let splashing = function() {
   });
 }
 
+//log in page function
 let loggingin = function() {
   document.querySelector("body").classList.add("login_body");
 }
 
+//register page function
 let registering = function() {
   document.querySelector("body").classList.add("register_body");
 }
 
+//log page function
 let logpaging = function() {
   document.querySelector("body").classList.add("log_body");
 }
 
+//add page function
 let addpaging = function() {
   document.querySelector("body").classList.add("add_body");
   document.querySelector("form").classList.add("djangoForm");
@@ -327,6 +335,7 @@ let addpaging = function() {
   document.querySelector("#id_buddy").placeholder = "dive buddy (optional)";
 }
 
+//to run after document loads:
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("i").forEach(deleteBtnListener);
   let path = window.location.pathname.replace(/\//,"")
