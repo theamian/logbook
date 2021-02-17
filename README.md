@@ -1,6 +1,6 @@
 # CoolDiveSite
 
-CoolDiveSite is a capstone project for Harvard's [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/). 
+[CoolDiveSite](https://cooldivesite.herokuapp.com) is a capstone project for Harvard's [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/). 
 
 It's a simple diving logbook which allows you to register, choose a dive site by clicking on a map or using Google's search box and fill out your logbook. It also presents all of your logged dives on a world map.
 
