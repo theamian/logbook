@@ -4,32 +4,32 @@
 {% block title%}Logbook{% endblock %}
 
 {% block body %}
-    <div id="logmap" class="mapa">
-    </div>
+<div id="logmap" class="mapa">
+</div>
 
-    <div>
-        {% if logbook %}
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Site</th>
-                <th>Country</th>
-                <th>Buddy</th>
-            </tr>
-            {% for entry in logbook %}
-            <tr id="{{ entry.id }}">
-                <td>{{ entry.date }}</td>
-                <td>{{ entry.town }}</td>
-                <td>{{ entry.country }}</td>
-                <td>{{ entry.buddy }}</td>
-                <td><button class="delButton"><i></i></button></td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% else %}
-        <div class="message">Your logbook is empty :( Click on "Log Dives" in the navbar to log your first dive!</div>
-        {% endif %}
-    </div>
+<div>
+    {% if logbook %}
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Site</th>
+            <th>Country</th>
+            <th>Buddy</th>
+        </tr>
+        {% for entry in logbook %}
+        <tr id="{{ entry.id }}">
+            <td>{{ entry.date }}</td>
+            <td>{{ entry.town }}</td>
+            <td>{{ entry.country }}</td>
+            <td>{{ entry.buddy }}</td>
+            <td><button class="delButton"><i></i></button></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="message">Your logbook is empty :( Click on "Log Dives" in the navbar to log your first dive!</div>
+    {% endif %}
+</div>
 
 {% endblock%}
 
