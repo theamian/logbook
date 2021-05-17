@@ -1,5 +1,6 @@
 /* map and searchbox stuff */
-#map, #logmap {
+#map,
+#logmap {
   height: 400px;
 }
 
@@ -34,7 +35,8 @@ body {
 
 /* splash screen */
 #splash {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(images/splash.jpeg) no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(images/splash.jpeg) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
 }
@@ -94,7 +96,7 @@ body {
   }
   100% {
     left: 0%;
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -104,7 +106,7 @@ body {
   }
   100% {
     right: 0%;
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -120,12 +122,13 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 5px white;
   display: inline-block;
-  padding: 2px 5px;
+  padding: 2px 8px;
   font-size: 1.5vw;
   margin: 0 4px;
 }
 
-.botuni:hover, .djangoForm > button:hover {
+.botuni:hover,
+.djangoForm > button:hover {
   background-color: white;
   color: rgb(33, 40, 56);
   cursor: pointer;
@@ -148,7 +151,8 @@ body {
 
 /* login and register pages */
 .login_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/login.jpg) no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/login.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -162,7 +166,9 @@ body {
   text-align: center;
 }
 
-#login_form > div > input, #register_form > div > input, #pac-input {
+#login_form > div > input,
+#register_form > div > input,
+#pac-input {
   background-color: transparent;
   color: white;
   border: 1px solid white;
@@ -170,15 +176,18 @@ body {
   box-shadow: 0 0 5px white;
 }
 
-#login_form > div > input::placeholder, #register_form > div > input::placeholder {
+#login_form > div > input::placeholder,
+#register_form > div > input::placeholder {
   color: white;
 }
 
-#login_form > div > -webkit-input::placeholder, #register_form > div > -webkit-input::placeholder {
+#login_form > div > -webkit-input::placeholder,
+#register_form > div > -webkit-input::placeholder {
   color: white;
 }
 
-.forms > input, input[id^="id_"] {
+.forms > input,
+input[id^="id_"] {
   background-color: transparent;
   color: white;
   border: 1px solid white;
@@ -195,8 +204,9 @@ body {
 }
 
 .register_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/register.jpeg) no-repeat center center fixed;
-  background-size: cover; 
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/register.jpeg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 .message {
@@ -212,12 +222,14 @@ body {
 
 /* log and add page */
 .log_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/log.jpeg) no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(images/log.jpeg) no-repeat center center fixed;
   background-size: cover;
 }
 
 .add_body {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url(images/add.jpeg) no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)),
+    url(images/add.jpeg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -242,7 +254,7 @@ tr {
 }
 
 th {
-  text-shadow: 1px 1px black ;
+  text-shadow: 1px 1px black;
 }
 
 tr:hover > td {
@@ -258,13 +270,13 @@ td {
 
 td:first-child {
   border-left-style: solid;
-  border-top-left-radius: 10px; 
+  border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding-left: 5px;
 }
 td:last-child {
   border-right-style: solid;
-  border-bottom-right-radius: 10px; 
+  border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 }
 
@@ -275,7 +287,7 @@ td:last-child {
   float: right;
 }
 
-.delButton > i{
+.delButton > i {
   content: url(images/delete-white.svg);
   height: 16px;
 }
@@ -304,7 +316,7 @@ label {
 
 .djangoForm > button {
   background-color: transparent;
-  color: white; 
+  color: white;
   border: 1px solid white;
   border-radius: 8px;
   box-shadow: 0 0 5px white;
@@ -313,7 +325,6 @@ label {
 }
 
 @media only screen and (max-width: 600px) {
-
   #splash_title {
     font-size: 10vw;
   }
@@ -326,13 +337,16 @@ label {
   .mapa {
     width: 99%;
   }
-  table, #pac-input, input[id^="id_"] {
+  table,
+  #pac-input,
+  input[id^="id_"] {
     width: 95%;
   }
-  input[id^="id_"]{
+  input[id^="id_"] {
     margin-bottom: 5px;
   }
-  th, td {
+  th,
+  td {
     font-size: 3vw;
   }
   .djangoForm {
@@ -344,7 +358,7 @@ label {
 @media only screen and (min-width: 601px) and (max-height: 600px) {
   .forms {
     top: 10%;
-    height: 80%
+    height: 80%;
   }
   .message {
     top: 0%;
@@ -361,7 +375,7 @@ label {
   table {
     width: 80%;
   }
-  input[id^="id_"]{
+  input[id^="id_"] {
     flex-shrink: 1;
     overflow: hidden;
     font-size: 2vw;
