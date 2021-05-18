@@ -353,6 +353,4 @@ document.addEventListener("DOMContentLoaded", () => {
   if (path === "") splashing();
   if (path === "login") loggingin();
   if (path === "register") registering();
-  
-
 });
